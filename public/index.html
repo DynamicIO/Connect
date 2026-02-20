@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connect Four Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+
+    <main class="app">
+      <section class="panel top">
+        <h1>Connect Four Arena</h1>
+        <p>Play vs CPU, on one device, or online with a shareable link.</p>
+      </section>
+
+      <section class="panel controls">
+        <div class="mode-group">
+          <button class="mode-btn active" data-mode="cpu">Vs CPU</button>
+          <button class="mode-btn" data-mode="local">2 Players (Same Device)</button>
+          <button class="mode-btn" data-mode="online">Online Link Match</button>
+        </div>
+
+        <div class="online-tools hidden" id="onlineTools">
+          <div class="row">
+            <input
+              type="text"
+              id="roomCodeInput"
+              placeholder="Room code, e.g. SUNSET7"
+              maxlength="16"
+            />
+            <button id="joinRoomBtn">Join Room</button>
+          </div>
+          <div class="row compact">
+            <button id="createRoomBtn">Create New Room</button>
+            <button id="copyLinkBtn">Copy Invite Link</button>
+          </div>
+        </div>
+
+        <div class="status-wrap">
+          <div id="statusText">Pick a mode and start dropping discs.</div>
+          <div id="presenceText"></div>
+        </div>
+      </section>
+
+      <section class="board-wrap">
+        <div id="turnBadge">Turn: Red</div>
+        <div class="board" id="board"></div>
+      </section>
+
+      <section class="panel actions">
+        <button id="restartBtn">Restart Game</button>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
